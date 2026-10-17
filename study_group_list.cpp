@@ -87,14 +87,53 @@ public:
 
     // ===== Resolve these TODOs later (Part E) =====
 
-    // TODO (Part E): Write containsGroup as a const member function that searches by group code.
+    
+    bool containsGroup(const string& targetGroupCode) const
+    {
+        Node *currentNode = head;
+
+        while (currentNode != nullptr)
+        {
+            if (currentNode->groupCode == targetGroupCode)
+            {
+                return true;
+            }
+
+            currentNode = currentNode->next;
+        }
+
+        return false;
+    }
+
 };
+
+    // ===== Resolve these TODOs later (Part E) =====
+
 
 int main()
 {
     cout << boolalpha;
 
-    // ===== Resolve these TODOs later (Part E) =====
+    StudyGroupList studyGroups;
+
+    studyGroups.addGroup("MATH-201-A", 315);
+    studyGroups.addGroup("COEN-2220-B", 204);
+    studyGroups.addGroup("CHEM-105-C", 118);
+
+    studyGroups.displayGroups();
+
+    cout << "Registered groups: "
+         << studyGroups.size() << endl;
+
+    cout << "Contains COEN-2220-B: "
+         << studyGroups.containsGroup("COEN-2220-B") << endl;
+
+    cout << "Contains PHYS-110-A: "
+         << studyGroups.containsGroup("PHYS-110-A") << endl;
+
+    return 0;
+
+
 
     // TODO (Part E): Create a StudyGroupList object.
     // TODO (Part E): Add three dummy groups with different codes and room numbers.
